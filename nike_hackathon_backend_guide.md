@@ -1,6 +1,6 @@
-# Sneaker Peeker Hack
+# Custom Vision Hack
 
-In this hack, we're going to show how to spin up your own Sneaker Peeker app in just a few steps.  After completing this hack, you'll be have a fully working Sneaker Peeker app that you use to identify sneaker models.
+In this hack, we're going to show how to spin up your own front and back end apps in just a few steps.  After completing this hack, you'll be have a fully working app that uses custom vision AI to identify objects you select.
 
 #### This hackathon excercies the following platforms or services
 
@@ -214,7 +214,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 
 ### Step 12: Connect the mobile front-end to the Functions backend
 
-1. In another instance of Visual Studio, open the MyMobileApp.sln file sitting in the root folder - this will open a new Xamarin project targeting iOS and Android
+1. In another instance of Visual Studio, open the MyMobileApp.sln file sitting in the root folder - this will open a Xamarin Forms project targeting iOS and Android
 1. Open the App.xaml.cs file and set your Azure Function endpoint on line 17.
 1. Right-click on either the iOS Android project and select "Set as Startup Project", then click "Rebuild"
    - If you are targeting iOS, you will need to bridge your PC with a Mac - please see [this doc](linkhere) for more info
