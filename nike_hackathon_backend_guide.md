@@ -80,7 +80,8 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
   1. Tools > Extensions and Updates > Expand the Updates node and select Visual Studio Marketplace
   1. Select Azure Functions and Web Jobs Tools and click the "Update" button
   <br/><img src="resources/vs_update_azure_tools.jpg" width="75%" />
-  1. Close out and exit Visual Studio so the update can install 1. click the "Modify" button when the prompt shows
+  1. Close out and exit Visual Studio so the update can install
+     1. Click the "Modify" button when the prompt shows
   1. Once the update completes, restart Visual Studio
 1. In Visual Studio, choose File > New > Project
 1. Under Visual C#, choose Cloud > Azure Functions
@@ -195,7 +196,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 > __Note__: This step is optional as we are providing a ProjectID and TrainingID for you
 
 1. Browse to http://customvision.ai and sign-in to create a new project
-
+1. More steps here...
 
 ### Step 11: Make a prediction with Custom Vision and log the results
 
