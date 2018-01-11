@@ -50,21 +50,21 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Launch Visual Studio and ensure your Azure Functions and Web Jobs Tools are updated to at version 15.0.31201.0
   1. Tools > Extensions and Updates > Expand the Updates node and select Visual Studio Marketplace
   1. Select Azure Functions and Web Jobs Tools and click the "Update" button
-  <br/><img src="resources/vs_update_azure_tools.jpg" />
+  <br/><img src="resources/vs_update_azure_tools.jpg" width="75%" />
   1. Close out and exit Visual Studio so the update can install
      1. Click the "Modify" button when the prompt shows
   1. Once the update completes, restart Visual Studio
 1. In Visual Studio, choose File > New > Project
 1. Under Visual C#, choose Cloud > Azure Functions
-<br/><img src="resources/vs_new_functions_app_project.png" />
+<br/><img src="resources/vs_new_functions_app_project.png" width="75%" />
 1. Select Azure Functions v1 (.NET Framework) from the dropdown and Http Trigger as the trigger type
 1. Select "Anonymous" from Access rights dropdown and click OK
-<br/><img src="resources/vs_new_functions_app_project_settings.png" />
+<br/><img src="resources/vs_new_functions_app_project_settings.png" width="75%" />
    1. this will create a boilerplate function called `Function1` 1. we will replace this function with a real one shortly
 1. Test out the function by clicking the Run/Debug button in Visual Studio
    1. You may be prompted to download and install the Azure Functions CLI tools 1. click the "Yes" button to accept
 1. Use Postman or a browser to make a GET request to the function (e.g. `http://localhost:7071/api/Function1?name=Rob`) and verify the ouput `Hello, Rob`, for example
-<br/><img src="resources/postman_verify_function1.png" />
+<br/><img src="resources/postman_verify_function1.png" width="75%" />
 
 
 ### Step 4: Publish your app to the cloud and verify
