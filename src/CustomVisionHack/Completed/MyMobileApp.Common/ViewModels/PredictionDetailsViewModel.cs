@@ -55,13 +55,8 @@ namespace MyMobileApp.Common
 
 			if(!CrossMedia.Current.IsCameraAvailable)
 			{
-				var options = new PickMediaOptions
-				{
-					CompressionQuality = 50,
-					PhotoSize = PhotoSize.Small,
-				};
-
-				file = await CrossMedia.Current.PickPhotoAsync(options);
+				//Probably a simulator - let's choose a photo from the library
+				file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
 			}
 			else
 			{

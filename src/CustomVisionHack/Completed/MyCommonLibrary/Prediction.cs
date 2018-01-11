@@ -25,7 +25,7 @@ namespace MyCommonLibrary
                 var sb = new StringBuilder();
 
                 foreach (var tag in Results)
-                    sb.Append($"{tag.Key} : {tag.Value.ToString("P1")}, ");
+					sb.Append($"{tag.Key}: {tag.Value.ToString("0.00%")}, ");
 
                 if (sb.Length == 0)
                     sb.Append("no matching tags");
