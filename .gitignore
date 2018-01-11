@@ -1,4 +1,5 @@
-﻿/packages
+*/packages
+*\packages
 */bin
 */obj
 *\bin

@@ -19,6 +19,9 @@ namespace MyCommonLibrary
         {
             get
             {
+				if(Results == null)
+					return null;
+				
                 var sb = new StringBuilder();
 
                 foreach (var tag in Results)
