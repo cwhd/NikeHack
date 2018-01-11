@@ -15,8 +15,8 @@ namespace MyFunctionsApp
         static string _databaseId = "my_database";
         static string _collectionId = "predictions";
 
-		static string _databaseUrl = "YOUR_COSMOS_DATABASE_URL";  //https://yourcosmosdatabase.documents.azure.com:443/";
-		static string _databaseKey = "YOUR_DATABASE_KEY"; //MnipfCxKxaOZAZJCl6QRRRaJUHm...
+		static string _databaseUrl = "https://mycosmosdatabase.documents.azure.com:443/";  //https://yourcosmosdatabase.documents.azure.com:443/";
+		static string _databaseKey = "MnipfCxKxaOZAZJCl6QRRRaJUHmvTSSIbrmpuKhVEglpBYSH7J5XTJ1JLgCfsnYBA9qFNz1oLgSR33tAxbFvOA=="; //MnipfCxKxaOZAZJCl6QRRRaJUHm...
 
         DocumentClient _client;
 

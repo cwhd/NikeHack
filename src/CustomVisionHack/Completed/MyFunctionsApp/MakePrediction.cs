@@ -29,8 +29,8 @@ namespace MyFunctionsApp
 				var stream = await req.Content.ReadAsStreamAsync();
 				var prediction = new Prediction
 				{
-					ProjectId = "YOUR_PROJECT_ID",  //36f167d1-82e0-45f4-8ddc-...
-					TrainingKey = "YOUR_TRAINING_KEY",  //c63201c1e627428fb5c5d6...
+					ProjectId = "36f167d1-82e0-45f4-8ddc-ffc6d3fe3a41",  //36f167d1-82e0-45f4-8ddc-...
+					TrainingKey = "c63201c1e627428fb5c5d603430b5f62",  //c63201c1e627428fb5c5d6...
 					TimeStamp = DateTime.UtcNow,
 					UserId = Guid.NewGuid().ToString(),
 					ImageUrl = await UploadImageToBlobStorage(stream)
@@ -50,7 +50,7 @@ namespace MyFunctionsApp
 				// Loop over each prediction and write out the results
 				foreach(var outcome in result.Predictions)
 				{
-					if(outcome.Probability > .70)
+					if(outcome.Probability >= 0.0010)
 						prediction.Results.Add(outcome.Tag, (decimal)outcome.Probability);
 				}
 
