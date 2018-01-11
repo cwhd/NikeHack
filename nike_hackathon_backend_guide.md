@@ -29,7 +29,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 
 1. Browse to [https://portal.azure.com](https://portal.azure.com)
 1. In the top left, click Create Resource > Compute > Function App
-<br/><img src="resources/portal_create_new_functions_app.png" />
+<br/><img src="resources/portal_create_new_functions_app.png" width="75%" />
 1. Enter in a name for the app (e.g. `myfunctionsapp` 1. this must be unique 1. don't worry, the portal will tell you if it's not)
 1. Choose your Azure Subscription
 1. Choose "Create new" for the resource group and copy the same value you used for your app name into the Resource Group Name field (we'll create all of our resources under this same Resource Group)
@@ -38,7 +38,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Leave the rest of the settings as default
 1. Optionally, for easy access, click the "Pin to dashboard" checkbox
 1. Click "Create" to create your Function App
-<br/><img src="resources/portal_create_new_functions_app_settings.png" />
+<br/><img src="resources/portal_create_new_functions_app_settings.png" width="75%" />
 1. It can take a few minutes before this process completes 1. check the notifications 
 <br/><img src="resources/portal_notifications_in_progress.png" width="40%" />
 1. You can always check out all incoming notifications by clicking on the Alert icon in the top toolbar 
@@ -73,16 +73,16 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Select "Azure Function App" and "Select Existing"
 1. Click the Settings icon and select "Create Profile"
 1. Click the "Create Profile" button
-<br/><img src="resources/vs_new_publish_profile.png" />
+<br/><img src="resources/vs_new_publish_profile.png" width="75%"/>
 1. Select your Azure Subscription from the dropdown
 1. Expand your the Resource Group and select the Function App you created in step 2
 1. Click "OK"
-<br/><img src="resources/vs_create_publish_profile_select_appservice.png" />
+<br/><img src="resources/vs_create_publish_profile_select_appservice.png" width="75%" />
 1. (If you plan to attach a remote debugger)
    1. Click "Manage Profile Settings"
-   <br/><img src="resources/vs_publish_profile_settings_link.png" />
+   <br/><img src="resources/vs_publish_profile_settings_link.png" width="75%" />
    1. Change the Configuration to "Debug" and click "Save"
-   <br/><img src="resources/vs_publish_profile_settings.png" />
+   <br/><img src="resources/vs_publish_profile_settings.png" width="75%" />
 1. Click the "Publish" button
    1. If you get a warning indicating the version remotely doesn't match the local version, accept by clicking "Yes"
 1. Copy the site URL and verify the function is running by using Postman to send that same GET request against the remote instance (e.g. `http://myfunctionsapp.azurewebsites.net/api/Function1?name=Rob`) and verify the ouput `Hello, Rob`
@@ -94,19 +94,19 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 
 1. Once again, browse to [https://portal.azure.com](https://portal.azure.com)
 1. Click "Create Resource" from the menu on the left of the page, then search for "Storage Account" and click "Create"
-<br/><img src="resources/portal_create_new_storage_account.png" />
+<br/><img src="resources/portal_create_new_storage_account.png" width="75%" />
 1. Enter in a name for the storage account (e.g. `mystorageaccount`)
 1. From th "Account Kind" dropdown, select "Blob"
 1. Choose your Azure Subscription
 1. Choose "Use existing", and select the resource group you created in the previous section
 1. Choose a region (any region is fine)
 1. Click "Create" to create the Storage Account
-<br/><img src="resources/portal_create_new_storage_account_settings.png" />
+<br/><img src="resources/portal_create_new_storage_account_settings.png" width="75%" />
 1. Once your storage account has been created, we need to create a new container to house our images
    1. Jump back into it and select "Browse blobs"
    1. Click the "+ Container" button to create a new container to house the image blobs we'll upload
    1. Name the container `images` and set the Public access level to __Blob (anonymous read access for blobs only)__
-   <br/><img src="resources/portal_storage_account_create_container.png"/>
+   <br/><img src="resources/portal_storage_account_create_container.png" width="75%" />
 
 #### Step 6: Generate a Shared Access Signature for your Storage Account
 
@@ -116,7 +116,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Click on Shared Access Signature
 1. Leave the default settings as is but ensure the "End Date" is set to 24hrs from now or however long you want the Functions App to have access
 1. Click the "Generate SAS" button
-<br/><img src="resources/portal_storage_account_generate_sas_url.png" />
+<br/><img src="resources/portal_storage_account_generate_sas_url.png" width="75%" />
 1. Copy the "Blob service SAS URL" to somewhere safe - we'll be using this to allow our function limited access to read and write to our storage account (e.g. `https://mynewstorageaccountblob.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=sco&sp=rwdlac&se=2018-01-05T23:03:17Z&st=2018-01-04T23:03:17Z&spr=https&sig=HIE2i2WSliZkiQ8lAw0qjykZm1VbywZdAGbUhrWfl%2BI%3D`)
 
 > __Note:__ This can also be done programatically to generate the URLs on demand. Check out [this code](https://github.com/rob-derosa/Hunt/blob/master/Hunt.Backend.Functions/Functions/GetStorageToken.cs#L81) as a reference.
@@ -170,7 +170,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
    1. Right click on the Dependencies node of the Functions app and select Add Reference...
    1. On the left side, choose Projects and check the box next to MyCommonLibrary
    1. Click the "OK" button
-   <br/><img src="resources/vs_add_reference_common.png" />
+   <br/><img src="resources/vs_add_reference_common.png" width="75%" />
 1. Right-click on your Functions app project and select Add > New Class... and name it "CosmosDataService.cs"
 1. Replace the empty class with the code from [this gist](https://gist.github.com/rob-derosa/d38e6a7c1bdba90b101a3e9ad7b6dfb6)
 1. Add the missing using statements
@@ -181,7 +181,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
    1. Click on Keys
    1. In the Read-write Keys tab, copy the URI and paste it as the value of `_databaseUrl` in CosmosDataService.cs
    1. In the Read-write Keys tab, copy the Primary Key and paste it as the value of `_databaseKey` in CosmosDataService.cs
-<br/><img src="resources/portal_cosmos_keys.png" />
+<br/><img src="resources/portal_cosmos_keys.png" width="75%" />
 1. In MakePrediction.cs, replace the code in the `try` clause with the code in [this gist](https://gist.github.com/rob-derosa/240dd977d41ebc58f633dbdf009d5e63)
 1. Build and run your project locally
 1. Use Postman to make the same local POST request as in the previous step
@@ -198,32 +198,32 @@ In this step, we will create a new Custom Vision project and classify a few diff
 1. Click the "New Project" button
 1. Complete the form by choosing a name for your project, such as "ShoesProject"
 1. You can leave the Domain as General and click the "Create project" button
-<br/><img src="resources/portal_cv_new_project.png" />
+<br/><img src="resources/portal_cv_new_project.png" width="75%" />
 1. Once your project has been created, it's time to upload some images of a model/shoe you intend to train.
     - __Tip:__ While the minimum photos-per-model count is 5, the classifier becomes more accurate as you add more photos - it is recommended to add at least 10 photos or more if you have the time
     - __Tip:__ Add varying photos of the object in different angles, perspective, lighting and environments
    1. Using your phone's camera, take at least 10 images of the object you wish to train and transfer them to your computer for upload
    1. Click the "Add images" button
-   <br/><img src="resources/portal_cv_new_project.png" />
+   <br/><img src="resources/portal_cv_add_images.png" width="75%" />
    1. Click the "Browse local files" button and select the images you snapped in the previous step
    1. You will be asked to add some tags to the images you are uploading - enter at least 2 tags
    1. Click the "Upload files" button and verify your model was tagged properly by checking the boxes of those specific tags and validating the image count
-   <br/><img src="resources/portal_cv_add_tags.png" />
+   <br/><img src="resources/portal_cv_add_tags.png" width="75%" />
    1. Repeat this process to until you have at least 4 total models with at least 2 tag each
 1. Once you have at least 4 models, click the Train Iteration button at the top
 1. This will train your first iteration of the classifier (iterations are versioned and each project can have a default iteration)
-<br/><img src="resources/portal_cv_train_iteration.png" />
+<br/><img src="resources/portal_cv_train_iteration.png" width="75%" />
 1. Let's test out this iteration running a quick test - start by clicking the "Quick Test" button at the top
-<br/><img src="resources/portal_cv_train_iteration_results.png" />
+<br/><img src="resources/portal_cv_train_iteration_results.png" width="75%" />
 1. Take another photo of one of the objects and transfer it to your computer
 1. Select the photo your just snapped and choose it for upload
 1. Once the photo has been uploaded, you will see the results of the test below - ideally, you'll have the correct set of tags with a high probability
-<br/><img src="resources/portal_cv_quick_test_results.png" />
+<br/><img src="resources/portal_cv_quick_test_results.png" width="75%" />
 1. As you add additional images with tags, you'll need to re-train your classifier by repeating the steps above. It is also recommended to set the latest iteration of your trained classifier to be the default iteration for the project. You can do this by:
    1. Click on the "Performance" tab at the top
    1. Select the iteration on the left you want to make the default
    1. Click on the "Make default" button towards the top to set it as default
-   <br/><img src="resources/portal_cv_default_iteration.png" />
+   <br/><img src="resources/portal_cv_default_iteration.png" width="75%" />
 
 
 ### Step 11: Make a prediction with Custom Vision and log the results
@@ -239,12 +239,13 @@ Now that we have a custom vision project with at least 4 trained models, we can 
 1. Add your project ID and training key to lines 30 and 31
    1. To get your custom vision project ID and training key, go to your project at http://customvision.ai
    1. Navigate to the project settings and you'll find your project ID and training key
-   <br/><img src="resources/portal_cv_settings.png" />
+   <br/><img src="resources/portal_cv_settings.png" width="75%" />
 1. You've just added a chunk of code that will now run a prediction against the image you upload and return a list of resulting tags and their probability
 1. Build and run locally
 1. Use Postman to make the same local POST request as in the previous step
 1. Verify the data was inserted by inspecting the Prediction JSON object that is returned which should include some matching tags
 1. Publish to the cloud and re-verify
+<br/><img src="resources/postman_get_predictions_result.png" width="75%" />
 
 
 ### Step 12: Connect the mobile front-end to the Functions backend
@@ -267,7 +268,7 @@ __Note:__ You can build the mobile front end using either Visual Studio for Wind
 
 __Note:__ This step is for those that cannot build the mobile app - it is configurable to point to any Azure endpoint
 
-1. On the device you want to install the app on, navigate to http://appcenter.ms/aasdasdas
+1. On the device you want to install the app on, navigate to http://install.appcenter.ms/nikehackathon
 1. Click on the "Install" button
 1. If the device is iOS:
    1. You will need to trust the enterprise signing certificate by by opening the Settings App
