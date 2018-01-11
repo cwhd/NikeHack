@@ -80,15 +80,13 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 <br/><img src="resources/vs_create_publish_profile_select_appservice.png" width="75%" />
 1. (If you plan to attach a remote debugger)
    1. Click "Manage Profile Settings"
-   <br/><img src="resources/vs_publish_profile_settings_link.png" width="75%" />
+   <br/><img src="resources/vs_publish_profile_settings_link.png" width="65%" />
    1. Change the Configuration to "Debug" and click "Save"
-   <br/><img src="resources/vs_publish_profile_settings.png" width="75%" />
+   <br/><img src="resources/vs_publish_profile_settings.png" width="50%" />
 1. Click the "Publish" button
    1. If you get a warning indicating the version remotely doesn't match the local version, accept by clicking "Yes"
 1. Copy the site URL and verify the function is running by using Postman to send that same GET request against the remote instance (e.g. `http://myfunctionsapp.azurewebsites.net/api/Function1?name=Rob`) and verify the ouput `Hello, Rob`
-<br/><img src="resources/vs_publish_profile_site_link.png" />
-1. Pat yourself on the back, you have now deployed a function
-
+<br/><img src="resources/vs_publish_profile_site_link.png" width="65%" />
 
 ### Step 5: Create your Storage Account (Blob)
 
