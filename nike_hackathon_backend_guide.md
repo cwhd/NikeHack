@@ -179,7 +179,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
    1. Click on Keys
    1. In the Read-write Keys tab, copy the URI and paste it as the value of `_databaseUrl` in CosmosDataService.cs
    1. In the Read-write Keys tab, copy the Primary Key and paste it as the value of `_databaseKey` in CosmosDataService.cs
-<br/><img src="resources/portal_cosmos_keys.png" width="75%" />
+<br/><img src="resources/portal_cosmos_keys.png" />
 1. In MakePrediction.cs, replace the code in the `try` clause with the code in [this gist](https://gist.github.com/rob-derosa/240dd977d41ebc58f633dbdf009d5e63)
 1. Build and run your project locally
 1. Use Postman to make the same local POST request as in the previous step
