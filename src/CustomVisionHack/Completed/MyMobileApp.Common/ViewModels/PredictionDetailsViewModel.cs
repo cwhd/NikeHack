@@ -47,22 +47,32 @@ namespace MyMobileApp.Common
 			Status = null;
 		}
 
-		#region Take/Upload Picture
+		#region Take/Choose Picture
 
 		async void TakePicture()
 		{
+			MediaFile file;
+
 			if(!CrossMedia.Current.IsCameraAvailable)
 			{
-				return;
+				var options = new PickMediaOptions
+				{
+					CompressionQuality = 50,
+					PhotoSize = PhotoSize.Small,
+				};
+
+				file = await CrossMedia.Current.PickPhotoAsync(options);
 			}
-
-			var options = new StoreCameraMediaOptions
+			else
 			{
-				CompressionQuality = 50,
-				PhotoSize = PhotoSize.Small,
-			};
+				var options = new StoreCameraMediaOptions
+				{
+					CompressionQuality = 50,
+					PhotoSize = PhotoSize.Small,
+				};
 
-			var file = await CrossMedia.Current.TakePhotoAsync(options);
+				file = await CrossMedia.Current.TakePhotoAsync(options);
+			}
 
 			if(file == null)
 				return;

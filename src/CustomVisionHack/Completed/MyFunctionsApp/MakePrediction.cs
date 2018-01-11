@@ -29,8 +29,8 @@ namespace MyFunctionsApp
 				var stream = await req.Content.ReadAsStreamAsync();
 				var prediction = new Prediction
 				{
-					ProjectId = "36f167d1-82e0-45f4-8ddc-ffc6d3fe3a41",
-					TrainingKey = "c63201c1e627428fb5c5d603430b5f62",
+					ProjectId = "YOUR_PROJECT_ID",  //36f167d1-82e0-45f4-8ddc-...
+					TrainingKey = "YOUR_TRAINING_KEY",  //c63201c1e627428fb5c5d6...
 					TimeStamp = DateTime.UtcNow,
 					UserId = Guid.NewGuid().ToString(),
 					ImageUrl = await UploadImageToBlobStorage(stream)
@@ -46,6 +46,7 @@ namespace MyFunctionsApp
 				//This is where we run our prediction against the default iteration
 				var result = endpoint.PredictImageUrl(new Guid(prediction.ProjectId), new ImageUrl(prediction.ImageUrl));
 				prediction.Results = new Dictionary<string, decimal>();
+				
 				// Loop over each prediction and write out the results
 				foreach(var outcome in result.Predictions)
 				{

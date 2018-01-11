@@ -17,7 +17,7 @@
 				</Grid.RowDefinitions>
 
 				<Button Text="Take Picture"
-					Margin="0,20,0,0"
+					Margin="0,30,0,0"
 					Command="{Binding TakePictureCommand}"
 					VerticalOptions="Center"
 					HorizontalOptions="Center"
@@ -26,7 +26,7 @@
 
 				<Image Source="{Binding ImageSource}"
 					IsVisible="{Binding HasImageSource}"
-					Margin="30,0"
+					Margin="0,30,0,0"
 					Aspect="AspectFill"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
