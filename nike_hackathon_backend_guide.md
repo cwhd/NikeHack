@@ -261,7 +261,7 @@ __Note:__ You can build the mobile front end using either Visual Studio for Wind
    1. Tap the "Take Photo" button to take a photo and snap a pic of one of the 4 models you have trainied your classifier on
    1. Tap the "Make Prediction" button
 1. If you are using an emulator and cannot use a camera:
-      1. Using the browser in the emulator, search for an image of the object you want to successfully predict against
+      1. Using the browser in the emulator, search for one of the 4 models you have trainied your classifier on
       1. Save the image to your local photo library
       1. Launch the mobile app and tap on the "Take Picture" button
       1. Select the image you downloaded in the previous step
@@ -308,7 +308,20 @@ __Note:__ This step is for those that cannot build the mobile app - it is config
 
 1. More steps to come...
 1. And even more...
- 
+
+
+#### Attaching a remote debugger to your Azure Functions App
+
+1. Before we can attach a remote debugger, we need to ensure the "Enable Just My Code" option in the Debugging section is disabled
+   1. In Visual Studio 2017, click on Tools > Options... > Click on the Debugging node
+   1. Look for the checkbox labeled "Enable Just My Code" and ensure it is UNCHECKED
+   <br/><img src="resources/vs_disable_justmycode.png" width="75%" />
+1. In Visual Studio 2017, open the Server Explorer window: View > Server Explorer
+1. Expand your Azure subscription node > App Service > YourResourceGroup > YourFunctionsApp
+1. Right Click on YourFunctionsApp node and select Attach Debugger
+<br/><img src="resources/vs_attach_debugger.png" width="50%" />
+1. Set a breakpoint in code where you want the debugger to pause
+
 
 #### References
 
@@ -317,4 +330,6 @@ __Note:__ This step is for those that cannot build the mobile app - it is config
 - Custom Vision
    - [Web Portal](http://customvision.ai)
    - [C# API](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial)
-   - [Best Practices](linkhere)
+   - [REST API - Prediction](https://go.microsoft.com/fwlink/?linkid=865445)
+   - [REST API - Training](https://go.microsoft.com/fwlink/?linkid=865446)
+   - [Tips on improving classifiers](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)
