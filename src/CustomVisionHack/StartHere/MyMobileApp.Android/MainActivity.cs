@@ -7,6 +7,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MyMobileApp.Common;
+using Plugin.Permissions;
 
 namespace MyMobileApp.Droid
 {
@@ -19,10 +21,16 @@ namespace MyMobileApp.Droid
 			ToolbarResource = Resource.Layout.Toolbar;
 
 			base.OnCreate(bundle);
+			Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			LoadApplication(new App());
+		}
+
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
 
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
