@@ -1,10 +1,18 @@
 # Custom Vision Hack
 
-In this hack, we're going to show how to spin up your own Functions App backend and a Xamarin Mobile App front-end in a few steps with the intent on using Custom Vision AI to identify custom-trained object.
+In this hack, we're going to show how to spin up your own Functions App backend and a Xamarin Mobile App front-end in a few steps with the intent of using Cognitive Services Custom Vision AI to identify custom-trained objects, blob storage to store our images, and Cosmos DB to track the results.
 
-Visual Studio 2017 on Windows is required to build and publish the backend Azure Functions App. The mobile app project can be built and run using either an iOS or Android device. A device is preferred but an emulator/simulator will work as well. If you are not able to build and run the mobile app project due to technical limitations, you can download and install a pre-built version of the app to your device (see step 12.b) and enter your Functions app endpoint URL to utilize your own edpoint.
+Visual Studio 2017 on Windows is required to build and publish the backend Azure Functions App. The mobile app project can be built and run using either an iOS or Android device. A device is preferred because we intend to use the camera to take pictures but an emulator/simulator will work as well. If you are not able to build and run the mobile app project due to technical limitations, you can download and install a pre-built version of the app to your device (see step 12.b) and enter your Functions app endpoint URL to utilize your own edpoint.
 
-#### This hackathon excercies the following platforms or services
+__A few notes on Custom Vision__
+- We're going to use the web interface to train our classifiers for this hack but this can and should be done programatically using an SDK or the REST API
+- To increase the accuracy of your predictions:
+   - Add more images of your object in different angles, lighting, environments and situations where you anticipate your object may be tested against
+   - Add more images of things that are NOT your object and tag them with other data - the classifier needs to understand what your object is not, too)
+   - Only test against objects/models that exist within your project - you may get misfires if you test against an object you have not trained
+
+
+#### This hackathon excercises the following platforms or services
 
 1. Visual Studio 2017
 1. Xamarin (Xamarin.Forms)
@@ -18,6 +26,7 @@ Visual Studio 2017 on Windows is required to build and publish the backend Azure
 1. (Required) [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following packages installed:
    - Mobile Development with .NET
    - Azure Development
+   - (Extension) Azure Functions and Web Jobs Tools version 15.0.31201.0 or higher
 1. Visual Studio for Mac (optional for Android, required for iOS)
 1. [Postman](https://www.getpostman.com/)
 
