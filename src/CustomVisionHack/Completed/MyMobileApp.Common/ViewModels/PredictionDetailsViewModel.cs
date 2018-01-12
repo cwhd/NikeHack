@@ -12,18 +12,11 @@ namespace MyMobileApp.Common
 		public ICommand TakePictureCommand => new Command(TakePicture);
 		public ICommand MakePredictionCommand => new Command(MakePrediction);
 
-		//public Prediction Prediction
-
 		string _status = "Snap a pic of a shoe to get started";
 		public string Status
 		{
 			get { return _status; }
 			set { SetProperty(ref _status, value); }
-		}
-
-		public bool CanMakePrediction
-		{
-			get { return true; }
 		}
 
 		byte[] _imageBytes;
@@ -111,6 +104,4 @@ namespace MyMobileApp.Common
 
 		#endregion
 	}
-
-
 }

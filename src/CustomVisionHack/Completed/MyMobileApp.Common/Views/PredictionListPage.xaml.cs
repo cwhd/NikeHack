@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using MyCommonLibrary;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MyMobileApp.Common
 {
@@ -13,25 +9,17 @@ namespace MyMobileApp.Common
 		public PredictionListPage()
 		{
 			InitializeComponent();
+
+			//Here we set the BindingContext (each ContentPage has one) to our ViewModel
+			//Then we can bind data directly to our UI from our ViewModel - yay!
 			BindingContext = _viewModel;
-		}
-
-		void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-		{
-			var item = args.SelectedItem as Prediction;
-			if(item == null)
-				return;
-
-			//await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-			// Manually deselect item
-			listView.SelectedItem = null;
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
 
+			//Lets make a request to get these items if the list is empty
 			if(_viewModel.Items.Count == 0)
 				_viewModel.LoadItemsCommand.Execute(null);
 		}

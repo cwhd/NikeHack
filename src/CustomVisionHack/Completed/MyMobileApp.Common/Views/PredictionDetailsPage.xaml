@@ -49,7 +49,6 @@
 				</StackLayout>
 
 				<Button Text="Make Prediction"
-					IsVisible="{Binding CanMakePrediction}"
 					Command="{Binding MakePredictionCommand}"
 					Grid.Row="2" />
 			</Grid>
