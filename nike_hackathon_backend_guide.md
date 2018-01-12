@@ -255,9 +255,16 @@ __Note:__ You can build the mobile front end using either Visual Studio for Wind
 1. In another instance of Visual Studio, open the MyMobileApp.sln file sitting in the root folder - this will open a Xamarin Forms project targeting iOS and Android
 1. Open the App.xaml.cs file and set your Azure Function endpoint on line 17.
 1. Right-click on either the iOS or Android project and select "Set as Startup Project", then click "Rebuild"
-1. Select an emulator from the drop-down list in the top toolbar and click the Start Debug button
+1. Select a device or emulator from the drop-down list in the top toolbar and click the Start Debug button
    - It can take several minutes to compile and begin the debugging session
-1. Once your debugging session begins, click the button to take a photo and snap a pic of one of the 4 models you have trainied your classifier on, then click the "Make Prediction" button
+1. Once your debugging session begins, if using an actual device:
+   1. Tap the "Take Photo" button to take a photo and snap a pic of one of the 4 models you have trainied your classifier on
+   1. Tap the "Make Prediction" button
+1. If you are using an emulator and cannot use a camera:
+      1. Using the browser in the emulator, search for an image of the object you want to successfully predict against
+      1. Save the image to your local photo library
+      1. Launch the mobile app and tap on the "Take Picture" button
+      1. Select the image you downloaded in the previous step
 1. Ideally, a match will be found and the matching tags will be displayed
 1. Click the Reset button in the top right to reset the data and make another prediction
 
