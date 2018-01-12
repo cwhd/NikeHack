@@ -13,9 +13,10 @@ In this hack, we're going to show how to spin up your own front and back end app
 
 #### Recommended tools
 
-1. (Required) [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following packages insta lled:
+1. (Required) [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following packages installed:
    - Mobile Development with .NET
    - Azure Development
+1. Visual Studio for Mac
 1. [Postman](https://www.getpostman.com/)
 
 
@@ -306,7 +307,7 @@ __Note:__ This step is for those that cannot build the mobile app - it is config
 
 ### Step 14: Add a new tabbed page to the mobile app and display a list of past predictions
 
-1. More steps to come...
+1. Back in Visual Studio that has your mobile app solution open, right-click on the Views folder under the MyMobileApp.Common project and select Add > New File  
 1. And even more...
 
 
