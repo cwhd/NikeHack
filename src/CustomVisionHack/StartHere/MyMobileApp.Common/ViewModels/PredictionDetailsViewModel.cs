@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows.Input;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -94,12 +95,20 @@ namespace MyMobileApp.Common
 			}
 
 			IsBusy = true;
-			Status = "Analyzing picture...";
-
-			var result = await DataStore.Instance.MakePredictionAsync(_imageBytes);
-
-			Status = result == null ? "Bad request" : result.Description;
-			IsBusy = false;
+			try
+			{
+				Status = "Analyzing picture...";
+				var result = await DataStore.Instance.MakePredictionAsync(_imageBytes);
+				Status = result == null ? "Bad request" : result.Description;
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine(e);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
 		}
 
 		#endregion

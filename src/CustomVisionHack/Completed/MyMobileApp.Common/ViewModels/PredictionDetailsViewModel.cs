@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows.Input;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -46,7 +47,7 @@ namespace MyMobileApp.Common
 		{
 			MediaFile file;
 
-			if(!CrossMedia.Current.IsCameraAvailable)
+			if (!CrossMedia.Current.IsCameraAvailable)
 			{
 				//Probably a simulator - let's choose a photo from the library
 				file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
@@ -62,13 +63,13 @@ namespace MyMobileApp.Common
 				file = await CrossMedia.Current.TakePhotoAsync(options);
 			}
 
-			if(file == null)
+			if (file == null)
 				return;
 
 			var stream = file.GetStream();
 			file.Dispose();
 
-			using(var ms = new MemoryStream())
+			using (var ms = new MemoryStream())
 			{
 				stream.CopyTo(ms);
 				_imageBytes = ms.ToArray();
@@ -94,12 +95,20 @@ namespace MyMobileApp.Common
 			}
 
 			IsBusy = true;
-			Status = "Analyzing picture...";
-
-			var result = await DataStore.Instance.MakePredictionAsync(_imageBytes);
-
-			Status = result == null ? "Bad request" : result.Description;
-			IsBusy = false;
+			try
+			{
+				Status = "Analyzing picture...";
+				var result = await DataStore.Instance.MakePredictionAsync(_imageBytes);
+				Status = result == null ? "Bad request" : result.Description;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
 		}
 
 		#endregion

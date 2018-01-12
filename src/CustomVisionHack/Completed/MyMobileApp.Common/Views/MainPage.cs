@@ -8,7 +8,7 @@ namespace MyMobileApp.Common
 	{
 		public MainPage()
 		{
-			var identifyPage = new NavigationPage(new PredictionDetailsPage())
+			var predictPage = new NavigationPage(new PredictionDetailsPage())
 			{
 				Title = "Predict"
 			};
@@ -27,12 +27,12 @@ namespace MyMobileApp.Common
 			{
 				case Device.iOS:
 					itemsPage.Icon = "tab_feed.png";
-					identifyPage.Icon = "tab_about.png";
-					settingsPage.Icon = "tab_about.png";
+					predictPage.Icon = "tab_about.png";
+					settingsPage.Icon = "tab_settings.png";
 					break;
 			}
 
-			Children.Add(identifyPage);
+			Children.Add(predictPage);
 			Children.Add(itemsPage);
 			Children.Add(settingsPage);
 
