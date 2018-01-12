@@ -1,6 +1,8 @@
 # Custom Vision Hack
 
-In this hack, we're going to show how to spin up your own front and back end apps in just a few steps.  After completing this hack, you'll be have a fully working app that uses custom vision AI to identify objects you select.
+In this hack, we're going to show how to spin up your own Functions App backend and a Xamarin Mobile App front-end in a few steps with the intent on using Custom Vision AI to identify custom-trained object.
+
+Visual Studio 2017 on Windows is required to build and publish the backend Azure Functions App. The mobile app project can be built and run using either an iOS or Android device. A device is preferred but an emulator/simulator will work as well. If you are not able to build and run the mobile app project due to technical limitations, you can download and install a pre-built version of the app to your device (see step 12.b) and enter your Functions app endpoint URL to utilize your own edpoint.
 
 #### This hackathon excercies the following platforms or services
 
@@ -16,7 +18,7 @@ In this hack, we're going to show how to spin up your own front and back end app
 1. (Required) [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following packages installed:
    - Mobile Development with .NET
    - Azure Development
-1. Visual Studio for Mac
+1. Visual Studio for Mac (optional for Android, required for iOS)
 1. [Postman](https://www.getpostman.com/)
 
 
@@ -26,12 +28,13 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 
 ```git clone https://github.com/rob-derosa/customvisionhack.git```
 
+
 ### Step 2: Create a new Azure Function App
 
 1. Browse to [https://portal.azure.com](https://portal.azure.com)
 1. In the top left, click Create Resource > Compute > Function App
 <br/><img src="resources/portal_create_new_functions_app.png" width="75%" />
-1. Enter in a name for the app (e.g. `myfunctionsapp` 1. this must be unique 1. don't worry, the portal will tell you if it's not)
+1. Enter in a name for the app (e.g. `myfunctionsapp` - this must be unique but don't worry, the portal will tell you if it's not)
 1. Choose your Azure Subscription
 1. Choose "Create new" for the resource group and copy the same value you used for your app name into the Resource Group Name field (we'll create all of our resources under this same Resource Group)
 1. Choose "Use existing", and select the resource group you created in the previous section
@@ -40,7 +43,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Optionally, for easy access, click the "Pin to dashboard" checkbox
 1. Click "Create" to create your Function App
 <br/><img src="resources/portal_create_new_functions_app_settings.png" width="75%" />
-1. It can take a few minutes before this process completes 1. check the notifications 
+1. It can take a few minutes before this process completes but you should see some notifications updating you on status 
 <br/><img src="resources/portal_notifications_in_progress.png" width="40%" />
 1. You can always check out all incoming notifications by clicking on the Alert icon in the top toolbar 
 <br/><img src="resources/portal_notifications.png" width="40%" />
@@ -55,7 +58,9 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
   1. Close out and exit Visual Studio so the update can install
      1. Click the "Modify" button when the prompt shows
   1. Once the update completes, restart Visual Studio
-1. In Visual Studio, choose File > New > Project
+1. In Visual Studio, click File > Open > Project/Solution... and select the empty solution located in the cloned repo `NikeHack/src/StartHere/MyBackendApp.sln`
+1. Right-click on the Solution node in Solution Explorer and select Add > New Project...
+<br/><img src="resources/vs_add_new_project_menu.png" width="75%" />
 1. Under Visual C#, choose Cloud > Azure Functions
 <br/><img src="resources/vs_new_functions_app_project.png" width="75%" />
 1. Select Azure Functions v1 (.NET Framework) from the dropdown and Http Trigger as the trigger type
@@ -89,6 +94,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Copy the site URL and verify the function is running by using Postman to send that same GET request against the remote instance (e.g. `http://myfunctionsapp.azurewebsites.net/api/Function1?name=Rob`) and verify the ouput `Hello, Rob`
 <br/><img src="resources/vs_publish_profile_site_link.png" width="65%" />
 
+
 ### Step 5: Create your Storage Account (Blob)
 
 1. Once again, browse to [https://portal.azure.com](https://portal.azure.com)
@@ -107,7 +113,8 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
    1. Name the container `images` and set the Public access level to __Blob (anonymous read access for blobs only)__
    <br/><img src="resources/portal_storage_account_create_container.png" width="75%" />
 
-#### Step 6: Generate a Shared Access Signature for your Storage Account
+
+### Step 6: Generate a Shared Access Signature for your Storage Account
 
 > __Note:__ We use a SAS URL to grant read/write access for a specified amount of time. We'll be using this from within a function.
 
@@ -119,6 +126,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Copy the "Blob service SAS URL" to somewhere safe - we'll be using this to allow our function limited access to read and write to our storage account (e.g. `https://mynewstorageaccountblob.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=sco&sp=rwdlac&se=2018-01-05T23:03:17Z&st=2018-01-04T23:03:17Z&spr=https&sig=HIE2i2WSliZkiQ8lAw0qjykZm1VbywZdAGbUhrWfl%2BI%3D`)
 
 > __Note:__ This can also be done programatically to generate the URLs on demand. Check out [this code](https://github.com/rob-derosa/Hunt/blob/master/Hunt.Backend.Functions/Functions/GetStorageToken.cs#L81) as a reference.
+
 
 ### Step 7: Upload an image/byte[] to your blob storage account
 
@@ -156,6 +164,7 @@ Make a local directory, and then clone the repo from [https://github.com/rob-der
 1. Click "Create" to create the Cosmos DB
 <br/><img src="resources/portal_create_new_cosmos_database_settings.png" />
 1. It can take a few minutes before this process completes
+
 
 ### Step 9: Write a document to your Cosmos SQL Database
 
@@ -282,6 +291,8 @@ __Note:__ This step is for those that cannot build the mobile app - it is config
    1. Locate the "Xamarin Inc." profile under the Enterprise Apps section and tap on it
    1. Tap the "Trust Xamarin Inc" button and confirm by tapping "Trust" again
    1. Go to the home screen and you should see the app installing/installed
+1. Launch the app and click on the Settings tab
+1. Enter your Functions App endpoint url in the textbox and tap Save (e.g. `http://myfunctionsapp.azurewebsites.net`)
 
 
 ### Step 13: Add another function that returns a list of past predictions
@@ -307,8 +318,7 @@ __Note:__ This step is for those that cannot build the mobile app - it is config
 
 ### Step 14: Add a new tabbed page to the mobile app and display a list of past predictions
 
-1. Back in Visual Studio that has your mobile app solution open, right-click on the Views folder under the MyMobileApp.Common project and select Add > New File  
-1. And even more...
+1. Steps to come...
 
 
 #### Attaching a remote debugger to your Azure Functions App
